@@ -12,7 +12,7 @@ numpy
 opencv-python
 pillow==9.5.0
 psutil
-py-tgcalls==0.9.7
+pytgcalls[pyrogram]==3.0.0  # Updated version
 pytgcrypto
 kurigram
 python-dotenv
@@ -26,4 +26,4 @@ yt-dlp
 youtube-search
 youtube-search-python
 py-yt-search
-
+pyrogram==2.0.106  # Make sure this is compatible
