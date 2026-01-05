@@ -1,5 +1,6 @@
 aiofiles
 aiohttp
+gtts
 beautifulsoup4
 dnspython
 ffmpeg-python
@@ -29,3 +30,4 @@ yt-dlp
 youtube-search
 youtube-search-python
 py-yt-search
+
