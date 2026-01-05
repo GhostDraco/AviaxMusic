@@ -2,6 +2,12 @@ import math
 from pyrogram.types import InlineKeyboardButton
 from AviaxMusic.utils.formatters import time_to_seconds
 
+# ✅ FIX: SUPPORT_GROUP define / import
+try:
+    from AviaxMusic.config import SUPPORT_GROUP
+except ImportError:
+    SUPPORT_GROUP = "https://t.me/xFlexyy"  # fallback support group
+
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
@@ -28,6 +34,11 @@ def track_markup(_, videoid, user_id, channel, fplay):
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
+
+    # ✅ Safety: division by zero avoid
+    if duration_sec == 0:
+        duration_sec = 1
+
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
 
@@ -88,11 +99,11 @@ def stream_markup(_, chat_id):
         [
             InlineKeyboardButton(
                 text=_["S_B_9"],
-                url=SUPPORT_GROUP,   # config se
+                url=SUPPORT_GROUP,
             ),
             InlineKeyboardButton(
                 text=_["S_B_10"],
-                url="https://t.me/xFlexyy",  # ✅ FIXED
+                url="https://t.me/xFlexyy",
             ),
         ],
         [
