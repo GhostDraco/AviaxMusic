@@ -6,7 +6,7 @@ from AviaxMusic.utils.formatters import time_to_seconds
 try:
     from AviaxMusic.config import SUPPORT_GROUP
 except ImportError:
-    SUPPORT_GROUP = "https://t.me/xFlexyy"  # fallback support group
+    SUPPORT_GROUP = "https://t.me/+m95aaEejShg3OWM1"  # fallback support group
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
