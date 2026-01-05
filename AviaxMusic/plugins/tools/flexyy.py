@@ -5,7 +5,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from AviaxMusic import app
 from config import SUPPORT_GROUP
 
-BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url=SUPPORT_GROUP)]])
+BUTTON = InlineKeyboardMarkup(
+    [[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url=SUPPORT_GROUP)]]
+)
 
 MEDIA = {
     "cutie": "https://graph.org/file/24375c6e54609c0e4621c.mp4",
@@ -19,44 +21,56 @@ MEDIA = {
 }
 
 TEMPLATES = {
-    "cutie": "🍑 {mention} ɪꜱ {percent}% ᴄᴜᴛᴇ ʙᴀʙʏ🥀",
-    "horny": "🔥 {mention} ɪꜱ {percent}% ʜᴏʀɴʏ!",
-    "hot": "🔥 {mention} ɪꜱ {percent}% ʜᴏᴛ!",
-    "sexy": "💋 {mention} ɪꜱ {percent}% ꜱᴇxʏ!",
-    "gay": "🍷 {mention} ɪꜱ {percent}% ɢᴀʏ!",
-    "lesbian": "💜 {mention} ɪꜱ {percent}% ʟᴇꜱʙɪᴀɴ!",
-    "boob": "🍒 {mention}ꜱ ʙᴏᴏʙ ꜱɪᴢᴇ ɪꜱ {percent}!",
-    "cock": "🍆 {mention} ᴄᴏᴄᴋ ꜱɪᴢᴇ ɪꜱ {percent}ᴄᴍ!",
+    "cutie": "🍑 {mention} ɪꜱ **{percent}%** ᴄᴜᴛᴇ ʙᴀʙʏ 🥀",
+    "horny": "🔥 {mention} ɪꜱ **{percent}%** ʜᴏʀɴʏ!",
+    "hot": "🔥 {mention} ɪꜱ **{percent}%** ʜᴏᴛ!",
+    "sexy": "💋 {mention} ɪꜱ **{percent}%** ꜱᴇxʏ!",
+    "gay": "🍷 {mention} ɪꜱ **{percent}%** ɢᴀʏ!",
+    "lesbian": "💜 {mention} ɪꜱ **{percent}%** ʟᴇꜱʙɪᴀɴ!",
+    "boob": "🍒 {mention} ʙᴏᴏʙ ꜱɪᴢᴇ **{percent}%**!",
+    "cock": "🍆 {mention} ᴄᴏᴄᴋ ꜱɪᴢᴇ **{percent}ᴄᴍ**!",
 }
 
 
-def get_user_mention(message: Message) -> str:
-    user = message.reply_to_message.from_user if message.reply_to_message else message.from_user
+def user_mention(user) -> str:
     return f"[{user.first_name}](tg://user?id={user.id})"
 
 
-def get_reply_id(message: Message) -> int | None:
-    return message.reply_to_message.message_id if message.reply_to_message else None
+async def rate_user(_, message: Message):
+    if not message.reply_to_message:
+        return await message.reply_text(
+            "❌ **Kisi user ko reply karke command use karo!**",
+            quote=True,
+        )
 
-
-async def handle_percentage_command(_, message: Message):
     command = message.command[0].lower()
-    if command not in MEDIA or command not in TEMPLATES:
+    if command not in MEDIA:
         return
 
-    mention = get_user_mention(message)
+    target = message.reply_to_message.from_user
+    mention = user_mention(target)
     percent = random.randint(1, 100)
-    text = TEMPLATES[command].format(mention=mention, percent=percent)
-    media_url = MEDIA[command]
 
-    await app.send_document(
-        message.chat.id,
-        media_url,
-        caption=text,
-        reply_markup=BUTTON,
-        reply_to_message_id=get_reply_id(message),
+    caption = TEMPLATES[command].format(
+        mention=mention,
+        percent=percent,
     )
 
+    media = MEDIA[command]
 
-for cmd in ["cutie", "horny", "hot", "sexy", "gay", "lesbian", "boob", "cock"]:
-    app.on_message(filters.command(cmd))(handle_percentage_command)
+    if media.endswith(".gif"):
+        await message.reply_animation(
+            animation=media,
+            caption=caption,
+            reply_markup=BUTTON,
+        )
+    else:
+        await message.reply_video(
+            video=media,
+            caption=caption,
+            reply_markup=BUTTON,
+        )
+
+
+for cmd in MEDIA.keys():
+    app.on_message(filters.command(cmd))(rate_user)
