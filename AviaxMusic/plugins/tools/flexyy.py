@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from AviaxMusic import app
 from config import SUPPORT_GROUP
 
-BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url=SUPPORT_CHAT)]])
+BUTTON = InlineKeyboardMarkup([[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url=SUPPORT_GROUP)]])
 
 MEDIA = {
     "cutie": "https://graph.org/file/24375c6e54609c0e4621c.mp4",
