@@ -1,155 +1,103 @@
 {
-
-    "name": "Aviax Music",
-
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-
-    "logo": "https://telegra.ph/Aviax-02-24",
-
-    "keywords": [
-
+  "name": "SoundFreq",
+  "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+  "logo": "https://telegra.ph/Aviax-02-24",
+  "keywords": [
     "python3",
-
     "telegram",
-
     "bot",
-
     "Aviax",
-
     "MusicBot",
-
     "telegram-bot",
-
     "pyrogram"
-
-    ],
-
-    "env": {
-
-      "API_ID": {
-
-        "description": "Get this value from https://my.telegram.org",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "API_HASH": {
-
-        "description": "Get this value from https://my.telegram.org",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "BOT_TOKEN": {
-
-        "description": "A Bot's token from Botfather",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "MONGO_DB_URI": {
-
-        "description": "Get a mongodb url from https://cloud.mongodb.com.",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "OWNER_ID": {
-
-        "description": "The user id of user whom you would like to add as OWNER.",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "STRING_SESSION": {
-
-        "description": "A Pyrogram v2 String Session from Replit.",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "HEROKU_API_KEY": {
-
-        "description": "Your Heroku account's API key",
-
-        "value": "",
-
-        "required": false
-
-      },
-
-      "HEROKU_APP_NAME": {
-
-        "description": "Your heroku app name",
-
-        "value": "",
-
-        "required": false
-
-      },
-
-      "API_KEY": {
-
-        "description": "Your API key from console.nexgenbots.xyz",
-
-        "value": "",
-
-        "required": true
-
-      },
-
-      "LOG_GROUP_ID": {
-
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Do not ever try to put channel ID here.",
-
-        "value": "",
-
-        "required": true
-
-      }
-
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": "24168862",
+      "required": true
     },
-
-    "buildpacks": [
-
-          {
-
-              "url": "heroku/python"
-
-          },
-
-          {
-
-              "url": "heroku/nodejs"
-
-          },
-
-          {
-
-              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-
-          }
-
-      ],
-
-      "stack": "container"
-
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": "916a9424dd1e58ab7955001ccc0172b3",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "A Bot's token from Botfather",
+      "value": "",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "Get a mongodb url from https://cloud.mongodb.com.",
+      "value": "mongodb+srv://flexyyofficial:57kF5evSvO8pqPsU@flexmanga.fwnk1lv.mongodb.net/flexmanga?retryWrites=true&w=majority",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "The user id of user whom you would like to add as OWNER.",
+      "value": "8459134831",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "A Pyrogram v2 String Session from Replit.",
+      "value": "",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku account's API key",
+      "value": "",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Your heroku app name",
+      "value": "",
+      "required": false
+    },
+    "API_KEY": {
+      "description": "Your API key from console.nexgenbots.xyz",
+      "value": "",
+      "required": false
+    },
+    "LOG_GROUP_ID": {
+      "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Do not ever try to put channel ID here.",
+      "value": "-1003668451336",
+      "required": true
+    },
+    "UPSTREAM_REPO": {
+      "description": "GitHub repository URL for updates",
+      "value": "",
+      "required": false
+    },
+    "SUPPORT_CHANNEL": {
+      "description": "Support channel ",
+      "value": "",
+      "required": false
+    },
+    "SUPPORT_GROUP": {
+      "description": "Support group ",
+      "value": "",
+      "required": false
+    },
+    "AUTO_LEAVING_ASSISTANT": {
+      "description": "Auto leaving assistant (true/false)",
+      "value": "false",
+      "required": false
+    },
+    "START_IMG_URL": {
+      "description": "Start image URL for bot",
+      "value": "https://files.catbox.moe/d9542e.jpg",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "stack": "container"
 }
