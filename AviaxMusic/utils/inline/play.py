@@ -1,7 +1,5 @@
 import math
-
 from pyrogram.types import InlineKeyboardButton
-
 from AviaxMusic.utils.formatters import time_to_seconds
 
 
@@ -32,6 +30,7 @@ def stream_markup_timer(_, chat_id, played, dur):
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
     umm = math.floor(percentage)
+
     if 0 < umm <= 10:
         bar = "◉—————————"
     elif 10 < umm < 20:
@@ -52,6 +51,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "————————◉—"
     else:
         bar = "—————————◉"
+
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -66,7 +66,12 @@ def stream_markup_timer(_, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [
+            InlineKeyboardButton(
+                text=_["CLOSE_BUTTON"],
+                callback_data="close",
+            )
+        ],
     ]
     return buttons
 
@@ -81,10 +86,21 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text=_["S_B_9"], url=SUPPORT_GROUP),
-            InlineKeyboardButton(text=_["S_B_10"], url=f"https://t.me/xFlexyy),
+            InlineKeyboardButton(
+                text=_["S_B_9"],
+                url=SUPPORT_GROUP,   # config se
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_10"],
+                url="https://t.me/xFlexyy",  # ✅ FIXED
+            ),
         ],
-        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        [
+            InlineKeyboardButton(
+                text=_["CLOSE_BUTTON"],
+                callback_data="close",
+            )
+        ],
     ]
     return buttons
 
