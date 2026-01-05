@@ -2,7 +2,6 @@ import math
 from pyrogram.types import InlineKeyboardButton
 from AviaxMusic.utils.formatters import time_to_seconds
 
-# ✅ FIX: SUPPORT_GROUP define / import
 try:
     from AviaxMusic.config import SUPPORT_GROUP
 except ImportError:
@@ -80,7 +79,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(
                 text=_["S_B_10"],
-                url="https://t.me/xFlexyy",
+                url="https://t.me/Flexyy",
             ),
             InlineKeyboardButton(
                 text=_["S_B_9"],
@@ -105,16 +104,6 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
-        ],
-        [
-            InlineKeyboardButton(
-                text=_["S_B_10"],
-                url="https://t.me/xFlexyy",
-            ),
-            InlineKeyboardButton(
-                text=_["S_B_9"],
-                url=SUPPORT_GROUP,
-            ),
         ],
         [
             InlineKeyboardButton(
