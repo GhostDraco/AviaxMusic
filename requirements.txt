@@ -6,7 +6,7 @@ ffmpeg-python
 gitpython
 hachoir
 heroku3
-httpx
+httpx[http2]
 motor
 numpy
 opencv-python
@@ -26,3 +26,4 @@ yt-dlp
 youtube-search
 youtube-search-python
 py-yt-search
+
