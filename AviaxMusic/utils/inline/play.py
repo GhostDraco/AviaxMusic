@@ -1,11 +1,7 @@
 import math
+import config
 from pyrogram.types import InlineKeyboardButton
 from AviaxMusic.utils.formatters import time_to_seconds
-
-try:
-    from AviaxMusic.config import SUPPORT_GROUP
-except ImportError:
-    SUPPORT_GROUP = "https://t.me/+m95aaEejShg3OWM1"  # fallback support group
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -79,11 +75,11 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(
                 text=_["S_B_10"],
-                url="https://t.me/Flexyy",
+                user_id=config.OWNER_ID,
             ),
             InlineKeyboardButton(
                 text=_["S_B_9"],
-                url=SUPPORT_GROUP,
+                url=config.SUPPORT_GROUP,
             ),
         ],
         [
