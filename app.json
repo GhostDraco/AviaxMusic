@@ -64,17 +64,17 @@
     },
     "UPSTREAM_REPO": {
       "description": "GitHub repository URL for updates",
-      "value": "",
+      "value": "https://github.com/GhostDraco/AviaxMusic",
       "required": false
     },
     "SUPPORT_CHANNEL": {
       "description": "Support channel ",
-      "value": "",
+      "value": "https://t.me/ScriptFlix_Bots",
       "required": false
     },
     "SUPPORT_GROUP": {
       "description": "Support group ",
-      "value": "",
+      "value": "https://t.me/+mdTWp_9iEo8yMWQ0",
       "required": false
     },
     "AUTO_LEAVING_ASSISTANT": {
