@@ -14,8 +14,8 @@ pillow
 psutil
 
 pyrogram==2.0.106
+py-tgcalls==2.2.8
 tgcrypto==1.2.5
-pytgcalls==3.0.0.dev24
 
 kurigram
 python-dotenv
